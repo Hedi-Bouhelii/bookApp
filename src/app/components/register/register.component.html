@@ -1,0 +1,53 @@
+<div class="main">
+    <div class="card card-container">
+      <h1>Create your account</h1>
+      <form [formGroup]="registrationForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input type="text" matInput formControlName="fullName">
+          <mat-error *ngIf="registrationForm.get('fullName')?.invalid && (registrationForm.get('fullName')?.dirty || registrationForm.get('fullName')?.touched)">
+            <span *ngIf="registrationForm.get('fullName')?.hasError('required')">Full Name is required</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="text" matInput formControlName="email">
+          <mat-error *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+            <span *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</span>
+            <span *ngIf="registrationForm.get('email')?.hasError('email')">Invalid email format</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Fields of Interests</mat-label>
+          <select matNativeControl formControlName="interests" required>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+            <option value="Sci-Fic">Sci-Fic</option>
+            <option value="Novels">Novels</option>
+          </select>
+          <mat-error *ngIf="registrationForm.get('interests')?.invalid && (registrationForm.get('interests')?.dirty || registrationForm.get('interests')?.touched)">
+            <span *ngIf="registrationForm.get('interests')?.hasError('required')">Fields of Interests is required</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-error *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+            <span *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</span>
+          </mat-error>
+          <mat-error *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+            <span *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</span>
+            <span *ngIf="registrationForm.get('password')?.hasError('minlength')">Password should have at least 8 characters</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <h5 routerLink="/login">Already have an account? <span class="connect">Connect NOW!</span></h5>
+  
+        <button (click)="connect()" mat-raised-button [disabled]="registrationForm.invalid">Register</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div>
+    <h2>Book List</h2>
+    <ul>
+      <li *ngFor="let book of books">
+        <h3>{{ book.volumeInfo.title }}</h3>
+        <p><strong>Author:</strong> {{ book.volumeInfo.authors?.join(', ') }}</p>
+        <p><strong>Year:</strong> {{ book.volumeInfo.publishedDate }}</p>
+        <!-- Display other relevant book information as needed -->
+        <hr>
+      </li>
+    </ul>
+  </div>

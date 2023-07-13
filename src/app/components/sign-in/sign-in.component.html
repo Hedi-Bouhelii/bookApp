@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="card card-container">
+      <h1>Welcome Back!</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field>
+          <mat-label>User Name</mat-label>
+          <input type="text" matInput formControlName="userName">
+          <mat-error *ngIf="loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)">
+            <span *ngIf="loginForm.get('userName')?.hasError('required')">User Name is required</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+            <span *ngIf="loginForm.get('password')?.hasError('required')">Password is required</span>
+            <span *ngIf="loginForm.get('password')?.hasError('minlength')">Password should have at least 8 characters</span>
+          </mat-error>
+        </mat-form-field>
+  
+        <h5 routerLink="/register">You're new here? <span>Join us NOW!</span></h5>
+  
+        <button (click)="login()" mat-raised-button [disabled]="loginForm.invalid">Log In</button>
+      </form>
+    </div>
+  </div>
+  

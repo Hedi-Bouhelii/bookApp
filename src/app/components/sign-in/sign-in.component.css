@@ -1,0 +1,49 @@
+.main{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: auto;
+    padding: 30px;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.056);
+    background-color: #eaf3fa;
+    align-self: center;
+    position: relative;
+    top: 250px;
+    width: 350px;
+}
+h1{
+    color: #2b468b;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+button{
+    margin: -15px;
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+    background-color: #fa9746;
+    border: none;
+}
+button:hover{
+    background-color: #7499f1;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+span{
+    color: #fa9746;
+}
+span:hover{
+    color: #7499f1;
+    cursor: pointer;
+}  ::ng-deep .snack {
+    background-color: #7499f1 !important;
+    color: #eaf3fa; /* Replace with your desired background color */
+  }

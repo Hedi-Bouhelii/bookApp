@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><span class="title">Read</span><span class="subTitle">Space</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor03" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Special Offers</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <span>
+        <i class="fas fa-shopping-cart"></i>
+      </span>
+      <form class="form-inline my-2 my-lg-0">
+                <button (click)="openDialog()" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+<div class="main container">
+    <div class="filter"></div>
+    <div class="books">
+        <div class="row">
+            <div class="col-md-3 book-container" *ngFor="let book of books">
+                <img [src]="book.image" alt="Book Image">
+                <div class="overlay">
+                    <h3>{{ book.name }}</h3>
+                    <p><strong>Author:</strong> {{ book.author }}</p>
+                    <p><strong>Year:</strong> {{ book.year }}</p>
+                    <p><strong>Type:</strong> {{ book.type }}</p>
+                    <p><strong>Rating:</strong> {{ book.rating }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
